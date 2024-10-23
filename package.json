@@ -1,0 +1,30 @@
+{
+    "name": "cn-number",
+    "version": "0.0.1",
+    "author": "Wzh <wzh@uvwee.com>",
+    "repository": "github:wzh19960613/cn-number-js",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "devDependencies": {
+        "@types/bun": "^1.1.12",
+        "bun-plugin-dts": "^0.3.0"
+    },
+    "description": "Convert integers or serial numbers to Chinese words. Support `capital` and `traditional`",
+    "keywords": [
+        "cn",
+        "chinese",
+        "zh",
+        "number",
+        "format",
+        "stringlify",
+        "string",
+        "literal"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "bun ./build.ts"
+    },
+    "type": "module",
+    "types": "dist/index.d.ts",
+    "dependencies": {}
+}
