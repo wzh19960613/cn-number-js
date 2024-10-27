@@ -1,4 +1,6 @@
-import { DigitCapitalCN, DigitCapitalTraditionalCN, DigitTraditionalCN, DigitCN, SerialDigitCN } from './dicts'
+import {
+    DigitCapitalCN, DigitCapitalTraditionalCN, DigitTraditionalCN, DigitCN, SerialDigitCN
+} from './dicts'
 
 export interface CnNumOptFinal {
     dict: Map<number, string>

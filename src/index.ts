@@ -129,5 +129,7 @@ export function newCnNumConvertor(opt?: Partial<CnNumOptions> & { absLessThan?: 
 
 export function newCnSerialNumConvertor(opt?: Partial<CnNumOptions>) {
     const dict = getSerialDict(opt)
-    return function (n: number) { return notNegToDigits(n).reverse().map(d => dict.get(d)!).join('') }
+    return function (n: number) {
+        return notNegToDigits(n).reverse().map(d => dict.get(d)!).join('')
+    }
 }

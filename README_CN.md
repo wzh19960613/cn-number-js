@@ -1,16 +1,16 @@
 # cn-number
 
-English | [中文](README_CN.md)
+[English](README.md) | 中文
 
-Convert integers or serial numbers to Chinese numerals. Supports `capital` and `traditional` forms.
+将整数或序列号转换为汉字数字。支持`大写`和`繁体`形式。
 
-## Installation
+## 安装
 
 ```bash
 npm i cn-number
 ```
 
-## Usage
+## 使用方法
 
 ```javascript
 import { newCnNumConvertor, newCnSerialNumConvertor } from "cn-number"
@@ -28,28 +28,28 @@ const cns = newCnSerialNumConvertor()
 console.log(cns(jsMax))
 ```
 
-## Configuration Options
+## 配置选项
 
-`newCnNumConvertor` creates a function that converts integers to Chinese numerals. Default configuration:
+`newCnNumConvertor` 用于创建一个将整数转换为汉字数字的函数。默认配置为：
 
 ```javascript
 { capital: false, traditional: false, liang: UseLiang.QianWanYi, absLessThan: Infinity }
 ```
 
-When `capital` is `true`, the result will be in capital form, and all `2` will not be converted to `两`.
+`capital` 为 `true` 时，结果为大写形式，且结果中所有的 `2` 都不会变成 `两`。
 
-When `traditional` is `true`, the result will be in traditional form.
+`traditional` 为 `true` 时，结果为繁体形式。
 
-`liang` is used to switch between `二` and `两`. The default value is `UseLiang.QianWanYi`, which means trying to use `两` before `千`, `万`, and `亿`.
+`liang` 用于在 `二` 和 `两` 之间切换。默认值为 `UseLiang.QianWanYi`，即在 `千`、`万`、`亿` 前尝试使用 `两`。
 
-`UseLiang` includes `Bai`, `Qian`, `Wan`, `Yi`, `QianWanYi`, `BaiQianWanYi`. And:
+`UseLiang` 包含 `Bai`、`Qian`、`Wan`、`Yi`、`QianWanYi`、`BaiQianWanYi`。并且：
 
 ```javascript
 UseLiang.QianWanYi === UseLiang.Qian | UseLiang.Wan | UseLiang.Yi
 UseLiang.BaiQianWanYi === UseLiang.Bai | UseLiang.Qian | UseLiang.Wan | UseLiang.Yi
 ```
 
-If you are certain that the absolute value of the input is always less than `10000` or `1e8`, you can set `absLessThan` to optimize performance. Otherwise, no need to set it.
+如果您确定输入值的绝对值始终小于 `10000` 或 `1e8`，可以设置 `absLessThan` 来优化性能。否则无需设置。
 
 ```javascript
 import { newCnNumConvertor, UseLiang } from "cn-number"
@@ -75,7 +75,7 @@ const cn_LiangAtBai = newCnNumConvertor({ liang: UseLiang.BaiQianWanYi })
 console.log(cn_LiangAtBai(200))
 ```
 
-`newCnSerialNumConvertor` creates a function that converts serial numbers to Chinese form. Default configuration:
+`newCnSerialNumConvertor` 用于创建一个将序列号转换为汉字形式的函数。默认配置为：
 
 ```javascript
 { capital: false, traditional: false }
@@ -101,13 +101,13 @@ const cns_capital_traditional = newCnSerialNumConvertor({ capital: true, traditi
 console.log(cns_capital_traditional(2024))
 ```
 
-## Dictionaries
+## 字典
 
-`DigitCN`, `DigitTraditionalCN`, `DigitCapitalCN`, `DigitCapitalTraditionalCN` are used for converting numbers.
+`DigitCN`、`DigitTraditionalCN`、`DigitCapitalCN`、`DigitCapitalTraditionalCN` 分别用于转换数字。
 
-`SerialDigitCN` is used for converting serial numbers.
+`SerialDigitCN` 用于转换序列号。
 
-These five dictionaries can be imported directly, defined as follows:
+这五个字典可以直接导入使用，具体定义如下：
 
 ```javascript
 const DigitCN = new Map([
@@ -144,7 +144,6 @@ const SerialDigitCN = new Map([
 ])
 ```
 
-## Attention
+## 注意事项
 
-In JavaScript, numbers with absolute values equal to or greater than 2^53 are too large to be represented accurately as integers. Therefore, input values should be greater than `-9007199254740992` and less than `9007199254740992`.
-
+在 JavaScript 中，绝对值等于或大于 2^53 的数值太大，无法准确表示为整数。因此，输入值应该大于 `-9007199254740992` 且小于 `9007199254740992`。
