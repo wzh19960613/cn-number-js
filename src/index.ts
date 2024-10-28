@@ -39,19 +39,19 @@ function fourDigit(parts: string[], digits: number[], dict: Dict, liang: number)
     const len = digits.length
     if (len === 1) parts.push(dict.get(digits[0])!)
     else if (len === 2) {
-        const [d1, d10] = digits
+        const { 0: d1, 1: d10 } = digits
         if (d10 !== 1) parts.push(dict.get(d10)!)
         parts.push(dict.get(10)!)
-        d1 && parts.push(dict.get(digits[0])!)
+        d1 && parts.push(dict.get(d1)!)
     } else if (len === 3) {
-        const [d1, d10, d100] = digits
+        const { 0: d1, 1: d10, 2: d100 } = digits
         bai(parts, d100, dict, liang)
         if (d10) {
             parts.push(dict.get(d10)!, dict.get(10)!)
             d1 && parts.push(dict.get(d1)!)
         } else d1 && parts.push(dict.get(0)!, dict.get(d1)!)
     } else {
-        const [d1, d10, d100, d1000] = digits
+        const { 0: d1, 1: d10, 2: d100, 3: d1000 } = digits
         qian(parts, d1000, dict, liang)
         if (d100) {
             bai(parts, d100, dict, liang)
